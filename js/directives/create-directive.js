@@ -32,11 +32,22 @@ angular.module('mdmUI.directives',[])
     directive.restrict = 'E';
     directive.templateUrl = "views/foreign-key.html";
     directive.link = function(scope, element, attrs) {
-
+        console.log("here")
+        names=$("select[name=table-name]")
+        for(var i in scope.tableNames)
+        {
+                value=scope.tableNames[i]
+                names.append("<option value="+value+">"+value+"</option>");
+                console.log(value)
+        }    
 	    scope.addForeignKey = function () {
 	        var el = $compile( "<foreign-key></foreign-key>" )( scope );
-	        element.parent().append( el );
-	    };
+            $.each(scope.tableNames,function(key,value){
+                    el.append("<option value="+value+">"+value+"</option>");
+                 })
+            element.parent().append( el );
+
+            };
     };
 
     return directive;
