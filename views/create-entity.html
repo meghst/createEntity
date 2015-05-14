@@ -1,0 +1,71 @@
+<div class="col-sm-9 panel" style='margin-top=10px'>
+	<div class="panel-heading"><h2>Create Entity Type</h2></div>
+	<div class="alert alert-info">Fill in details to define new entity</div>
+	<div class="panel-body">
+		<form>
+			<div class="row">
+				<div class="col-sm-8">
+					<div class="form-group ">
+						<label > <h3 >Name</h3></label><br/>
+						<input id="entityName" class="form-control" name="name" id="name"></input>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<!--Columns-->
+				<div class="col-sm-4">
+					<div class="form-group panel panel-default">
+						<div class="panel-heading">
+							<label><h3>Fields</h3></label>
+						</div>
+						<div class="panel-body">
+							<ul style="list-style: none; padding-left:10px;">
+								<field><field>
+							</ul>
+							<div style="text-align:center;margin-bottom:15px">
+								<button ng-click="addField()" class="btn btn-default" style=""><i class="glyphicon glyphicon-plus"></i>Add</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--End of Columns-->
+				<!--Foreign Keys-->
+				<div class="col-sm-4">
+					<div class="form-group panel panel-default">
+						<div class="panel-heading">
+							<label><h3>Relationships</h3></label>
+						</div>
+						<div class="panel=body">
+							<ul style="list-style: none; padding-left:10px;">
+								<foreign-key><foreign-key>
+							</ul>
+							<div style="text-align:center;margin-bottom:15px">
+								<button ng-click="addForeignKey()" class="btn btn-default" style=""><i class="glyphicon glyphicon-plus"></i>Add</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- End of Foreign Keys-->
+				<!--Entity Indexes-->
+				<div class="col-sm-4">
+					<div class="form-group panel panel-default">
+						<div class="panel-heading">
+							<label><h3>Indexes</h3></label>
+						</div>
+						<div class="panel-body">
+							<ul style="list-style: none; padding-left:10px;">
+								<entity-index><entity-index>
+							</ul>
+							<div style="text-align:center;margin-bottom:15px">
+								<button ng-click="addEntityIndex()" class="btn btn-default" style=""><i class="glyphicon glyphicon-plus"></i>Add</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--End of Entity Indexes-->
+			</div>
+		</form>
+	</div>
+</div>
+<script>
+</script>

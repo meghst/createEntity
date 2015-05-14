@@ -1,0 +1,9 @@
+div {
+    overflow: auto;
+}
+label, input {
+    float: left;
+}
+label {
+    width: 200px;
+ }

@@ -1,0 +1,37 @@
+
+<li >
+	<div class="panel panel-default" style="margin-top:10px;margin-right:10px;margin-leftt:10px;">
+		<button onclick="$(this).parent().parent().fadeOut()" style="position: relative; z-index: 20; margin-right:10px" class="close"><span aria-hidden="true">×</span></button>
+		<h4 style="margin-left:10px;">Columns</h4>
+
+		<div class="panel-body" class="field">
+			<div class="form-group">
+				<label>Name</label>
+				<input class="form-control"></input>
+			</div>	
+			<div class="form-group">
+				<label>Type</label>
+				<select class="form-control">
+					<option value="?" selected="selected" label=""></option>
+					<option value="0" label="STRING">STRING</option>
+					<option value="1" label="DOUBLE">DOUBLE</option>
+					<option value="2" label="INTEGER">INTEGER</option>
+					<option value="3" label="LIST">LIST</option>
+					<option value="4" label="BOOLEAN">BOOLEAN</option>
+					<option value="5" label="DATE">DATE</option>
+					<option value="6" label="TIMESTAMP">TIMESTAMP</option>
+				</select>
+			</div>		
+			<div class="form-group">
+				<label>
+					<input type="checkbox"name="primary_key" style="margin:3px"> Primary Key ?
+				</label>
+			</div>	
+			<div>
+				<label>
+					<input type="checkbox"name="required" style="margin:3px"> Required ?
+				</label>
+			</div>
+		</div>
+	</div>
+</li>
