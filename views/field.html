@@ -4,14 +4,14 @@
 		<button onclick="$(this).parent().parent().fadeOut()" style="position: relative; z-index: 20; margin-right:10px" class="close"><span aria-hidden="true">×</span></button>
 		<h4 style="margin-left:10px;">Columns</h4>
 
-		<div class="panel-body" class="field">
+		<div class="panel-body" class="field" id="col0">
 			<div class="form-group">
 				<label>Name</label>
-				<input class="form-control"></input>
+				<input class="form-control" name="colName"></input>
 			</div>	
 			<div class="form-group">
 				<label>Type</label>
-				<select class="form-control">
+				<select class="form-control" name="colType">
 					<option value="?" selected="selected" label=""></option>
 					<option value="0" label="STRING">STRING</option>
 					<option value="1" label="DOUBLE">DOUBLE</option>

@@ -20,7 +20,16 @@ angular.module('mdmUI.directives',[])
 
 	    scope.addField = function () {
 	        var el = $compile( "<field></field>" )( scope );
+            el.attr("id","col"+scope.columnId)
+            console.log(el.find("[name=colName]").bind("change",function()
+            {   
+                $("[name=colName]").each(function(){
+                    scope.colNames.push($(this).value())
+                })
+                console.log(scope.colNames)
+            }));
 	        element.parent().append( el );
+            scope.columnId++;
 	    };
     };
 
@@ -32,21 +41,11 @@ angular.module('mdmUI.directives',[])
     directive.restrict = 'E';
     directive.templateUrl = "views/foreign-key.html";
     directive.link = function(scope, element, attrs) {
-        console.log("here")
-        names=$("select[name=table-name]")
-        for(var i in scope.tableNames)
-        {
-                value=scope.tableNames[i]
-                names.append("<option value="+value+">"+value+"</option>");
-                console.log(value)
-        }    
-	    scope.addForeignKey = function () {
+        scope.addForeignKey = function () {
 	        var el = $compile( "<foreign-key></foreign-key>" )( scope );
-            $.each(scope.tableNames,function(key,value){
-                    el.append("<option value="+value+">"+value+"</option>");
-                 })
+            el.attr("id","fk"+scope.fkId)
             element.parent().append( el );
-
+            scope.fkId++;
             };
     };
 
@@ -61,7 +60,9 @@ angular.module('mdmUI.directives',[])
 
 	    scope.addEntityIndex = function () {
 	        var el = $compile( "<entity-index><entity-index>" )( scope );
+            el.attr("id","index"+scope.indexId)
 	        element.parent().append( el );
+            scope.indexId++;
 	    };
     };
 
