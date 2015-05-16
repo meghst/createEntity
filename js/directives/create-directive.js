@@ -65,7 +65,20 @@ angular.module('mdmUI.directives',[])
             $.each(scope.colNames[table],function(key,value){
                 fkey.append("<option value="+value+">"+value+"</option>")
             })
-        })    
+        }) 
+
+        element.find("[name=lkey]").click(function(){
+
+            var localKey=$(this)
+            localKey.empty();
+            localKey.append("<option value=''></option>");
+
+            $("[name=colName]").each(function(el){
+                value=$(this).val()
+                localKey.append("<option value="+value+">"+value+"</option>")
+            })
+
+        })
     };
 
     return directive;
@@ -76,6 +89,18 @@ angular.module('mdmUI.directives',[])
     directive.restrict = 'E';
     directive.templateUrl = "views/entity-index.html";
     directive.link = function(scope, element, attrs) {
+
+        element.find("[name=col]").click(function(){
+
+            var column=$(this)
+            column.empty()
+            column.append("<option value=''></option>")
+            $("[name=colName]").each(function(el){
+                value=$(this).val()
+                column.append("<option value="+value+">"+value+"</option>")
+            })
+
+        })
     };
 
     return directive;
