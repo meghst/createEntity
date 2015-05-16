@@ -4,11 +4,12 @@
 		<button onclick="$(this).parent().parent().fadeOut()" style="position: relative; z-index: 20; margin-right:10px" class="close"><span aria-hidden="true">×</span></button>
 		<h4 style="margin-left:10px;">Foreign Key</h4>
 
-		<div class="panel-body" name="foreign-key" id="fk0">
+		<div class="panel-body">
 			<div class="form-group">
 				<label>Foreign Table</label>
-				<select class="form-control" >
-					<option ng-repeat="table in tableNames" ng-attr-value="table">{{table}}</option>
+				<select class="form-control" name="ftable" >
+					<option value=""></option>
+					<option ng-repeat="table in tableNames" value="{{table}}">{{table}}</option>
 				</select>
 			</div>
 			<div class="form-group">
@@ -17,11 +18,15 @@
 			</div>	
 			<div class="form-group">
 				<label>Local Table Key</label>
-				<select name="local-key" class="form-control" ng-options="col for col in columns"></select>
+				<select name="local-key" class="form-control" name="lkey">
+					<option ng-repeat="col in columns" value="{{col}}">{{col}}</option>
+				</select>
 			</div>	
 			<div class="form-group">
 				<label>Foreign Table Key</label>
-				<select name=" foreign-key"class="form-control"></select>
+				<select class="form-control" name="fkey" disabled>
+					<option ng-repeat="col in fkcolumns" value="{{col}}">{{col}}</option>
+				</select>
 			</div>	
 		</div>
 	</div>
