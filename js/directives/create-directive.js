@@ -28,6 +28,61 @@ angular.module('mdmUI.directives',[])
             scope.indexId++;
         };
 
+        scope.generateModel = function () {
+
+            scope.model={};
+            //get name
+            var name=$("[name=name]").val()
+
+            //get columns
+            var columns=[]
+            $("field").each(function(){
+                var column=$(this)
+                var primary_key=column.find("[name=primary_key]").is(":checked")
+                var required=column.find("[name=required]").is(":checked")
+                var name=column.find("[name=colName]").val()
+                var type=column.find("[name=colType]").val()
+                console.log("pk: ",primary_key," required : ",required," name : ",name," type: ",type)
+                var col={
+                    "primary_key":primary_key,
+                    "required":required,
+                    "name":name,
+                    "type":type
+                }
+                columns.push(col)
+            })
+
+            //get foreign_keys
+            var foreign_keys=[]
+            $("foreign-key").each(function(){
+                var foreign_key=$(this)
+                var foreign_table=foreign_key.find("[name=ftable]").val();
+                var foreign_key_name=foreign_key.find("[name=fname]").val();
+                var local_ref=foreign_key.find("[name=lkey]").val();
+                var foreign_ref=foreign_key.find("[name=fkey]").val();
+                if(foreign_table && foreign_ref && local_ref)
+                {
+                    var fkey={
+                        "foreign_table":foreign_table,
+                        "foreign_key_name":foreign_key_name,
+                        "local_ref":local_ref,
+                        "foreign_ref":foreign_ref
+                    }
+                    foreign_keys.push(fkey)
+                }
+                
+            })
+
+            scope.model={"tables":[{
+                "columns":columns,
+                "foreign_keys":foreign_keys,
+                "entity_indexes":[],
+                "name":name
+            }]}
+            console.log(scope.model)
+
+        }
+
 
     };
     return directive;
